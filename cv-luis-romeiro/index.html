@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Luis ROMEIRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#6C3CE9;
+    --rose:#FF2E88;
+    --orange:#FF7A00;
+    --jaune:#FFC400;
+    --turquoise:#00C9A7;
+    --bleu:#0EA5E9;
+    --encre:#1E1B2E;
+    --gris:#6B7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#2b1b4d 0%,#0f2b46 50%,#3d1452 100%);
+    color:var(--encre);
+    padding:30px 12px;
+  }
+  .page{
+    max-width:900px;margin:auto;background:#fff;
+    border-radius:24px;overflow:hidden;
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+  }
+  /* ---------- HEADER ---------- */
+  header{
+    background:linear-gradient(120deg,var(--violet) 0%,var(--rose) 55%,var(--orange) 100%);
+    color:#fff;padding:42px 48px 34px;
+    position:relative;overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;
+    background:radial-gradient(circle,rgba(255,255,255,.28),transparent 65%);border-radius:50%;
+  }
+  header::before{
+    content:"";position:absolute;left:32%;bottom:-90px;width:200px;height:200px;
+    background:radial-gradient(circle,rgba(255,255,255,.15),transparent 60%);border-radius:50%;
+  }
+  .h-top{display:flex;align-items:center;gap:26px;flex-wrap:wrap;position:relative;z-index:1;}
+  .avatar{
+    width:110px;height:110px;border-radius:50%;
+    background:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:44px;font-weight:800;color:var(--violet);
+    border:5px solid var(--jaune);letter-spacing:1px;flex-shrink:0;
+  }
+  h1{font-size:34px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;}
+  .slogan{
+    display:inline-block;margin-top:8px;padding:6px 16px;border-radius:999px;
+    background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.5);
+    font-size:14px;font-weight:600;
+  }
+  .contact-bar{
+    display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:22px;font-size:13.5px;
+    position:relative;z-index:1;
+  }
+  .contact-bar span{display:flex;align-items:center;gap:8px;font-weight:500;}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--jaune);display:inline-block;}
+
+  /* ---------- LAYOUT ---------- */
+  .body-grid{display:grid;grid-template-columns:1fr 2fr;}
+  aside{
+    background:linear-gradient(180deg,#F4F0FF 0%,#FFF3F8 100%);
+    padding:34px 26px;border-right:1px solid #eee;
+  }
+  main{padding:34px 36px;}
+
+  /* ---------- TITRES DE SECTION ---------- */
+  .sec-title{
+    display:flex;align-items:center;gap:12px;margin-bottom:16px;
+  }
+  .sec-title .badge{
+    width:38px;height:38px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff;
+    box-shadow:0 5px 12px rgba(0,0,0,.18);
+  }
+  .sec-title h2{font-size:16px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;}
+  .b-violet{background:linear-gradient(135deg,var(--violet),#9B6CFF);}
+  .b-rose{background:linear-gradient(135deg,var(--rose),#FF6FA5);}
+  .b-orange{background:linear-gradient(135deg,var(--orange),var(--jaune));}
+  .b-turquoise{background:linear-gradient(135deg,var(--turquoise),#4ADEDE);}
+  .b-bleu{background:linear-gradient(135deg,var(--bleu),#38BDF8);}
+  .b-jaune{background:linear-gradient(135deg,var(--jaune),var(--orange));}
+
+  aside .sec-title h2{color:var(--violet);}
+  main .sec-title h2{color:var(--encre);}
+  section{margin-bottom:32px;}
+
+  /* ---------- COMPETENCES ---------- */
+  .skill{margin-bottom:13px;}
+  .skill .name{font-size:13.5px;font-weight:600;margin-bottom:5px;display:flex;justify-content:space-between;}
+  .bar{height:9px;border-radius:999px;background:#E5E1F5;overflow:hidden;}
+  .bar i{display:block;height:100%;border-radius:999px;}
+
+  /* ---------- LANGUES / LOISIRS ---------- */
+  .tag-list{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    padding:6px 13px;border-radius:999px;font-size:12.5px;font-weight:600;color:#fff;
+  }
+  .t1{background:var(--turquoise);} .t2{background:var(--bleu);}
+  .t3{background:var(--rose);} .t4{background:var(--orange);}
+  .t5{background:var(--violet);} .t6{background:var(--jaune);color:var(--encre);}
+
+  /* ---------- TIMELINE EXPERIENCE ---------- */
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{
+    content:"";position:absolute;left:6px;top:6px;bottom:6px;width:4px;border-radius:4px;
+    background:linear-gradient(180deg,var(--violet),var(--rose),var(--orange),var(--jaune));
+  }
+  .tl-item{position:relative;margin-bottom:24px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-27px;top:5px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:4px solid var(--rose);box-shadow:0 0 0 3px rgba(255,46,136,.2);
+  }
+  .tl-item:nth-child(2)::before{border-color:var(--orange);}
+  .tl-item:nth-child(3)::before{border-color:var(--bleu);}
+  .tl-date{
+    display:inline-block;font-size:12px;font-weight:700;color:#fff;
+    background:linear-gradient(90deg,var(--violet),var(--rose));
+    padding:4px 12px;border-radius:999px;margin-bottom:6px;
+  }
+  .tl-item h3{font-size:16px;font-weight:700;}
+  .tl-item .lieu{font-size:13px;color:var(--rose);font-weight:600;margin-bottom:6px;}
+  .tl-item ul{margin-left:18px;font-size:13.5px;color:#374151;}
+  .tl-item li{margin-bottom:4px;}
+
+  /* ---------- FORMATION ---------- */
+  .formation{
+    border-left:5px solid var(--turquoise);background:#F0FBF8;
+    padding:14px 18px;border-radius:0 14px 14px 0;margin-bottom:12px;
+  }
+  .formation h3{font-size:15px;}
+  .formation p{font-size:13px;color:var(--gris);}
+  .formation .date{font-size:12px;font-weight:700;color:var(--turquoise);}
+
+  /* ---------- ATOUTS ---------- */
+  .atouts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .atout{
+    background:#FFF8E6;border-left:4px solid var(--jaune);
+    padding:10px 14px;border-radius:0 12px 12px 0;font-size:13px;font-weight:500;
+  }
+
+  footer{
+    text-align:center;padding:18px;color:#fff;font-size:12.5px;font-weight:600;
+    background:linear-gradient(90deg,var(--violet),var(--rose),var(--orange),var(--jaune));
+    letter-spacing:.5px;
+  }
+
+  @media print{
+    body{background:#fff;padding:0;}
+    .page{box-shadow:none;border-radius:0;}
+  }
+  @media (max-width:720px){
+    .body-grid{grid-template-columns:1fr;}
+    aside{border-right:none;border-bottom:1px solid #eee;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="h-top">
+      <div class="avatar">LR</div>
+      <div>
+        <h1>Luis ROMEIRO</h1>
+        <div class="slogan">🚀 Technicien Informatique Junior · 55 ans · 20 ans d'expérience Réseaux Mobiles Radio 2G</div>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <span><i class="dot"></i> 📍 Cepoy, France</span>
+      <span><i class="dot"></i> 📞 [Téléphone]</span>
+      <span><i class="dot"></i> ✉️ luis.romeiro@gmail.com</span>
+      <span><i class="dot"></i> 🚗 Permis B</span>
+    </div>
+  </header>
+
+  <div class="body-grid">
+
+    <!-- ===== COLONNE GAUCHE ===== -->
+    <aside>
+      <section>
+        <div class="sec-title"><div class="badge b-violet">💡</div><h2>Profil</h2></div>
+        <p style="font-size:13.5px;line-height:1.7;color:#4B5563;">
+      Technicien de 55 ans, rigoureux et passionné, fort de <strong>20 ans d'expérience</strong> dans les
+          réseaux mobiles 2G (partie radio) chez <strong>Alcatel</strong>, je mobilise aujourd'hui mon
+          expertise terrain pour relever de nouveaux défis dans le domaine de
+          <strong>l'informatique</strong>.
+        </p>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-rose">🛠️</div><h2>Compétences IT</h2></div>
+        <div class="skill"><div class="name"><span>Maintenance PC / Dépannage</span><span>80%</span></div><div class="bar"><i style="width:80%;background:linear-gradient(90deg,var(--violet),var(--rose));"></i></div></div>
+        <div class="skill"><div class="name"><span>Windows / Linux</span><span>75%</span></div><div class="bar"><i style="width:75%;background:linear-gradient(90deg,var(--rose),var(--orange));"></i></div></div>
+        <div class="skill"><div class="name"><span>Réseaux (TCP/IP, LAN)</span><span>70%</span></div><div class="bar"><i style="width:70%;background:linear-gradient(90deg,var(--orange),var(--jaune));"></i></div></div>
+        <div class="skill"><div class="name"><span>Bureautique (Office)</span><span>85%</span></div><div class="bar"><i style="width:85%;background:linear-gradient(90deg,var(--turquoise),var(--bleu));"></i></div></div>
+        <div class="skill"><div class="name"><span>Support utilisateurs</span><span>90%</span></div><div class="bar"><i style="width:90%;background:linear-gradient(90deg,var(--bleu),var(--violet));"></i></div></div>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-turquoise">📡</div><h2>Expertise Radio 2G</h2></div>
+        <div class="tag-list">
+          <span class="tag t1">BTS / BSC</span>
+          <span class="tag t2">Installation &amp; supervision</span>
+          <span class="tag t3">Paramétrage radio</span>
+          <span class="tag t4">Tests &amp; mesures terrain</span>
+          <span class="tag t5">Maintenance préventive</span>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-bleu">🌍</div><h2>Langues</h2></div>
+        <div class="skill"><div class="name"><span>Français</span></div><div class="bar"><i style="width:90%;background:var(--violet);"></i></div></div>
+        <div class="skill"><div class="name"><span>Anglais (technique)</span></div><div class="bar"><i style="width:60%;background:var(--rose);"></i></div></div>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-jaune">⚡</div><h2>Centres d'intérêt</h2></div>
+        <div class="tag-list">
+          <span class="tag t5">Nouvelles technologies</span>
+          <span class="tag t2">Bricolage / électronique</span>
+          <span class="tag t3">Sport</span>
+        </div>
+      </section>
+    </aside>
+
+    <!-- ===== COLONNE DROITE ===== -->
+    <main>
+      <section>
+        <div class="sec-title"><div class="badge b-rose">💼</div><h2>Expérience professionnelle</h2></div>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">[Année] – Aujourd'hui</span>
+            <h3>Reconversion — Technicien Informatique Junior</h3>
+            <div class="lieu">[Nom de l'entreprise / stage]</div>
+            <ul>
+              <li>Installation, configuration et maintenance de postes de travail.</li>
+              <li>Assistance et support aux utilisateurs, diagnostic des pannes.</li>
+              <li>Gestion du parc informatique et du réseau local.</li>
+            </ul>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">[Année début] – [Année fin] · 20 ans</span>
+            <h3>Technicien Réseaux Mobiles — Partie Radio 2G</h3>
+            <div class="lieu">Alcatel</div>
+            <ul>
+              <li>Installation, intégration et mise en service des équipements radio 2G (BTS).</li>
+              <li>Maintenance corrective et préventive du réseau mobile sur le terrain.</li>
+              <li>Réalisation de tests, mesures et supervision de la qualité radio.</li>
+              <li>Collaboration étroite avec les équipes d'exploitation et d'optimisation réseau.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-turquoise">🎓</div><h2>Formation</h2></div>
+        <div class="formation">
+          <span class="date">[Année]</span>
+          <h3>[Certification / Formation en informatique]</h3>
+          <p>[Organisme de formation — Ville]</p>
+        </div>
+        <div class="formation">
+          <span class="date">[Année]</span>
+          <h3>[Diplôme d'origine — Télécommunications / Électronique]</h3>
+          <p>[École ou université — Ville]</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-title"><div class="badge b-orange">🏅</div><h2>Certifications &amp; atouts</h2></div>
+        <div class="atouts">
+          <div class="atout">🎯 20 ans de rigueur terrain en environnement exigeant</div>
+          <div class="atout">🤝 Excellent relationnel et esprit d'équipe</div>
+          <div class="atout">🔧 Autonomie et sens du diagnostic</div>
+          <div class="atout">📚 Veille techno &amp; apprentissage continu</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>✨ Disponible immédiatement · [Téléphone] · luis.romeiro@gmail.com ✨</footer>
+</div>
+</body>
+</html>
