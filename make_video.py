@@ -11,6 +11,7 @@ import sys
 
 import cv2
 import numpy as np
+import subprocess
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1280, 720
@@ -397,6 +398,20 @@ def main():
     writer.release()
     poster = render_frame(3.6).convert("RGB")
     poster.save("poster.jpg", quality=90)
+
+    try:
+        import imageio_ffmpeg
+        from soundtrack import make_soundtrack
+        make_soundtrack(TOTAL)
+        tmp = out + ".tmp.mp4"
+        cmd = [imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-i", out, "-i", "soundtrack.wav",
+               "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac",
+               "-b:a", "160k", "-shortest", tmp]
+        subprocess.run(cmd, check=True, capture_output=True)
+        os.replace(tmp, out)
+        print("audio muxed", out, flush=True)
+    except ImportError:
+        print("video muette (pip install imageio-ffmpeg pour ajouter la bande-son)", flush=True)
     print("done", out, flush=True)
 
 
